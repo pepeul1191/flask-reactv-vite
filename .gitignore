@@ -26,3 +26,4 @@ yarn-error.log*
 # python
 env
 __pycache__
+static/dist
