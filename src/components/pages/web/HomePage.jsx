@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container, Navbar, Nav, Button, Row, Col, Card, Footer } from 'react-bootstrap';
 
 class HomePage extends Component {
   constructor(props) {
@@ -26,11 +27,32 @@ class HomePage extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Hola, soy un componente de Home</h1>
-        <p>Contador: {this.state.contador}</p>
-        <button onClick={this.incrementarContador}>Incrementar contador</button>
-      </div>
+      <>
+        <Container className="my-5 p-5 bg-light border">
+          <h1>Welcome to Our Service</h1>
+          <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content.</p>
+          <Button variant="primary">Learn More</Button>
+        </Container>
+
+        <Container className="my-5">
+          <Row xs={1} md={3} className="g-4">
+            {Array.from({ length: 3 }).map((_, idx) => (
+              <Col key={idx}>
+                <Card>
+                  <Card.Img variant="top" src="https://via.placeholder.com/100x160" />
+                  <Card.Body>
+                    <Card.Title>Feature {idx + 1}</Card.Title>
+                    <Card.Text>
+                      This is a wider card with supporting text below as a natural lead-in to additional content.
+                    </Card.Text>
+                    <Button variant="primary">Go somewhere</Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </>
     );
   }
 }
