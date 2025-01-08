@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "dev2": "NODE_ENV=development node watch.js",
+    "dev2": "NODE_ENV=development node watch.js & python app.py",
     "preview": "vite preview"
   },
   "dependencies": {

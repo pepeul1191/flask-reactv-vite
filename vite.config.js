@@ -10,6 +10,7 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       input: {
         demo: fileURLToPath(new URL('./src/main.jsx', import.meta.url)),
+        web: fileURLToPath(new URL('./src/entries/web.jsx', import.meta.url)),
       },
       output: {
         manualChunks: null,
