@@ -9,3 +9,7 @@ Crear ambiente virutal en python:
 Crear proyecto React+Vite
 
     $ npm create vite@latest
+
+Archivo .env:
+
+    DB=sqlite3:db/fifa25.db

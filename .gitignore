@@ -27,3 +27,5 @@ yarn-error.log*
 env
 __pycache__
 static/dist
+*.db-journal
+.env
