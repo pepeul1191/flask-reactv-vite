@@ -1,38 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import AboutPage from '../pages/web/AboutPage.jsx';
+import HomePage from '../pages/web/HomePage.jsx';
 
-class Web extends Component {
-  constructor(props) {
-    super(props);
-    // Estado inicial del componente
-    this.state = {
-      contador: 0
-    };
-  }
-
-  // Método para manejar el incremento del contador
-  incrementarContador = () => {
-    this.setState({ contador: this.state.contador + 1 });
-  };
-
-  // Método del ciclo de vida que se ejecuta después de que el componente se monta
-  componentDidMount() {
-    console.log('Componente montado');
-  }
-
-  // Método del ciclo de vida que se ejecuta justo antes de que el componente se desmonte
-  componentWillUnmount() {
-    console.log('Componente a punto de desmontarse');
-  }
-
-  render() {
-    return (
+function Web() {
+  return (
+    <Router>
       <div>
-        <h1>Hola, soy un componente de clase!</h1>
-        <p>Contador: {this.state.contador}</p>
-        <button onClick={this.incrementarContador}>Incrementar contador</button>
+        <nav>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About</Link></li>
+          </ul>
+        </nav>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
-export default Web;
+export default Web
