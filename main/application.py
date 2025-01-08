@@ -8,6 +8,7 @@ APP = Flask(
   static_url_path='/'
 )
 
-@APP.route('/')
+@APP.route('/about', methods=['GET'])
+@APP.route('/', methods=['GET'])
 def home():
   return render_template('home.html')
