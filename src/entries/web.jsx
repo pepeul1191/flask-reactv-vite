@@ -4,7 +4,5 @@ import '../stylesheets/styles.css'
 import Web from '../components/layouts/Web.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <Web />
-  </StrictMode>,
+  <Web />,
 )
