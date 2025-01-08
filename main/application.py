@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-from flask import Flask
+from flask import Flask, render_template
 
 APP = Flask(
   __name__,
@@ -8,3 +8,6 @@ APP = Flask(
   static_url_path='/'
 )
 
+@APP.route('/')
+def home():
+  return render_template('home.html')
