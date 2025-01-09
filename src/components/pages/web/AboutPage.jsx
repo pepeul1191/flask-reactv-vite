@@ -30,7 +30,7 @@ class AboutPage extends Component {
       <Container>
         <Row className="mt-5">
           <Col md={6}>
-            <Image src="/imgs/about.jpg" fluid />
+            <Image src="/img/about.jpg" fluid />
           </Col>
           <Col md={6}>
             <h2>Acerca de Nosotros</h2>

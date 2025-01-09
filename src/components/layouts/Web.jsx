@@ -4,6 +4,7 @@ import { Container, Navbar, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AboutPage from '../pages/web/AboutPage.jsx';
 import HomePage from '../pages/web/HomePage.jsx';
+import ContactPage from '../pages/web/ContactPage.jsx';
 
 const Web = () => {
   return (
@@ -16,6 +17,7 @@ const Web = () => {
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/">Inicio</Nav.Link>
               <Nav.Link as={Link} to="/about">Nosotros</Nav.Link>
+              <Nav.Link as={Link} to="/contact">Contacto</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -23,6 +25,7 @@ const Web = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
       <footer className="bg-dark text-white mt-5 p-4 text-center">
         Footer Content Here. © 2023 Company Name.
