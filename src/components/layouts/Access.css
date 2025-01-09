@@ -1,0 +1,17 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-sizing: border-box;
+  background: #F4f4f4;
+}
+
+.login-form{
+  border: 1px solid #d3d3d3;
+  background: #FEFEFE;
+  padding: 40px;
+}

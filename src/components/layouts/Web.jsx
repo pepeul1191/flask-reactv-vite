@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Container, Navbar, Nav } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 import AboutPage from '../pages/web/AboutPage.jsx';
 import HomePage from '../pages/web/HomePage.jsx';
 import ContactPage from '../pages/web/ContactPage.jsx';
@@ -20,6 +20,9 @@ const Web = () => {
               <Nav.Link as={Link} to="/contact">Contacto</Nav.Link>
             </Nav>
           </Navbar.Collapse>
+          <Nav className="ms-auto">
+            <a href="/sign-in" className="nav-link">Iniciar Sesión</a> {/* HTML hyperlink */}
+          </Nav>
         </Container>
       </Navbar>
       <Routes>
