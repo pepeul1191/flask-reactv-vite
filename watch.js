@@ -12,9 +12,17 @@ const directoryToWatch = path.join(__dirname, 'src');
 // Ruta de la carpeta de destino después del build
 const destinationFolder = path.join(__dirname, 'static', 'dist');
 
+// Verificar si estamos en un sistema operativo Windows o Unix-like
+const isWindows = process.platform === 'win32';
+
 // Iniciar el observador
 const watcher = chokidar.watch(directoryToWatch, {
-  ignored: /node_modules/, // Opcional: Ignorar cambios en node_modules
+  ignored: '*.git',
+  ignored: /node_modules|dist|build/, // Opcional: Ignorar cambios en node_modules
+  awaitWriteFinish: {
+    stabilityThreshold: 2000,
+    pollInterval: 100
+  },
   persistent: true,        // Mantener el observador en ejecución
   ignoreInitial: true,     // Ignorar el primer evento cuando se inicia el observador
 });
@@ -32,8 +40,12 @@ watcher
       console.log(stdout);
       console.error(stderr);
 
-      // Borrar el directorio de destino antes de mover los archivos
-      exec(`rm -rf ${destinationFolder}/*`, (rmErr, rmStdout, rmStderr) => {
+      // Usar comillas para las rutas con espacios
+      const rmCommand = isWindows
+        ? `for %f in (build\\*) do move "%f" "${destinationFolder}\\"`  // Usar un bucle para mover los archivos
+        : `mv build/* ${destinationFolder}`;  // Comando de Linux/Unix
+
+      exec(rmCommand, (rmErr, rmStdout, rmStderr) => {
         if (rmErr) {
           console.error(`Error al limpiar el directorio de destino: ${rmErr}`);
           return;
@@ -43,7 +55,11 @@ watcher
         console.error(rmStderr);
 
         // Mover los archivos después del build
-        exec(`mv build/* ${destinationFolder}`, (mvErr, mvStdout, mvStderr) => {
+        const mvCommand = isWindows
+          ? `move build\\* ${destinationFolder}\\`  // Comando de Windows
+          : `mv build/* ${destinationFolder}`;  // Comando de Linux/Unix
+
+        exec(mvCommand, (mvErr, mvStdout, mvStderr) => {
           if (mvErr) {
             console.error(`Error al mover archivos: ${mvErr}`);
             return;
