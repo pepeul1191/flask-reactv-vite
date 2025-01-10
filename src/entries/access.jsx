@@ -1,7 +1,7 @@
-import { createRoot } from 'react-dom/client'
+import { createRoot } from 'react-dom/client';
+import '../stylesheets/access.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../stylesheets/styles.css'
-import Access from '../components/layouts/Access.jsx'
+import Access from '../components/layouts/Access.jsx';
 
 createRoot(document.getElementById('root')).render(
   <Access />,

@@ -20,6 +20,7 @@ class ResetPasswordPage extends Component {
   // Método del ciclo de vida que se ejecuta después de que el componente se monta
   componentDidMount() {
     console.log('Componente montado');
+    document.title = 'Recuperar Contraseña';
   }
 
   // Método del ciclo de vida que se ejecuta justo antes de que el componente se desmonte

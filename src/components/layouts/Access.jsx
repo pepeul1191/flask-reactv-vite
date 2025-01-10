@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import SignUpPage from '../pages/access/SignUpPage.jsx';
 import SignInPage from '../pages/access/SignInPage.jsx';
 import ResetPasswordPage from '../pages/access/ResetPasswordPage.jsx';

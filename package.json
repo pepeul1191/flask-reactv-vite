@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm run build:clean && npm run build:compile && npm run build:move",
+    "build:clean": "rm -rf static/dist/*",
+    "build:compile": "vite build",
+    "build:move": "cp build/* static/dist/",
     "lint": "eslint .",
     "dev2": "NODE_ENV=development node watch.js & python app.py",
     "preview": "vite preview",

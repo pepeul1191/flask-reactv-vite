@@ -1,27 +1,28 @@
-import { fileURLToPath, URL } from 'node:url'
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import reactRefresh from '@vitejs/plugin-react-refresh'
+import { fileURLToPath, URL } from 'node:url';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import reactRefresh from '@vitejs/plugin-react-refresh';
 
-// https://vite.dev/config/
 export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'build',
     rollupOptions: {
       input: {
-        //demo: fileURLToPath(new URL('./src/main.jsx', import.meta.url)),
         web: fileURLToPath(new URL('./src/entries/web.jsx', import.meta.url)),
-        access: fileURLToPath(new URL('./src/entries/access.jsx', import.meta.url)),
+        access: fileURLToPath(new URL('./src/entries/access.jsx', import.meta.url))
       },
       output: {
-        manualChunks: null,
-        entryFileNames: '[name].js',
-        chunkFileNames: '[name].js',
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name.endsWith('.css')) {
-            return '[name].css';
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor'; // Todos los módulos de node_modules van a vendor.js
           }
-          return '[name][extname]';
+        },
+        entryFileNames: chunkInfo => {
+          return `[name].js`;
+        },
+        chunkFileNames: '[name].js',
+        assetFileNames: assetInfo => {
+          return `[name][extname]`;
         },
       }
     }

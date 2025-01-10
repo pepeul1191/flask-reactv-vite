@@ -1,0 +1,7 @@
+.btn, .form-control {
+  border-radius: 10px !important;
+}
+
+.btn-primary{
+  background: green;
+}
